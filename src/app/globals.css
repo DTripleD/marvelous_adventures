@@ -5,3 +5,40 @@
 :root {
   background-color: #0c0b0b;
 }
+
+.swiper {
+  /* width: 320px; */
+  height: 70vh;
+}
+
+.swiper-slide {
+  padding-left: 64px;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active:nth-child(1n) {
+  background: #34387f;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active:nth-child(2n) {
+  background: #600404;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active:nth-child(3n) {
+  background: #5b7f3c;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  height: 100px;
+  width: 4px;
+  border-radius: 0;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-vertical {
+  left: 0;
+  right: auto;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: #171717;
+  opacity: 0.8;
+}

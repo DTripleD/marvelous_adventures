@@ -15,6 +15,24 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) => {
+      const utilities = {
+        ".bg-radial-gradient-panther": {
+          backgroundImage:
+            "radial-gradient(81.15% 81.15% at 50% 18.85%, #34387F 0%, #171717 100%)",
+        },
+        ".bg-radial-gradient-spider ": {
+          backgroundImage:
+            "radial-gradient(81.15% 81.15% at 50% 18.85%, #600404 0%, #171717 100%)",
+        },
+        ".bg-radial-gradient-hulk": {
+          backgroundImage:
+            "radial-gradient(81.15% 81.15% at 50% 18.85%, #5B7F3C 0%, #171717 100%)",
+        },
+      };
+      addUtilities(utilities, ["responsive", "hover"]);
+    },
+  ],
 };
 export default config;
