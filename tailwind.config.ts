@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      spacing: {
+        "25-percent-minus-16px": "calc(25% - 16px)",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -29,6 +32,10 @@ const config: Config = {
         ".bg-radial-gradient-hulk": {
           backgroundImage:
             "radial-gradient(81.15% 81.15% at 50% 18.85%, #5B7F3C 0%, #171717 100%)",
+        },
+        ".bg-circle": {
+          background:
+            "linear-gradient(180deg, #34387f 36.46%, rgba(52, 56, 127, 0) 100%)",
         },
       };
       addUtilities(utilities, ["responsive", "hover"]);

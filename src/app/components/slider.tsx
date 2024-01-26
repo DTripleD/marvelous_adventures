@@ -5,7 +5,14 @@ import "swiper/css/pagination";
 import "swiper/css/effect-creative";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCreative, Pagination, Autoplay } from "swiper/modules";
+import {
+  EffectFade,
+  Pagination,
+  Autoplay,
+  EffectCube,
+  EffectCoverflow,
+  EffectCreative,
+} from "swiper/modules";
 import SliderItem from "./slider-item";
 
 const characters = [
@@ -49,6 +56,7 @@ const Slider = () => {
         // }}
         creativeEffect={{
           prev: {
+            opacity: 0,
             shadow: true,
             translate: [0, -400, 0],
           },
