@@ -1,27 +1,22 @@
 import React from 'react'
-import Select from 'react-select'
+import Select, { StylesConfig } from 'react-select'
 
 const SearchForm = () => {
 
 
-      const styles = {
-        option: () => ({
-        
-        fontWeight:"bold",
-        color: "white",
-        backgroundColor: "red",
-
-    }),
-    singleValue: () => ({
-
-    })
-  };
-
+   
     const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+    ]
+
+    const customStyles: StylesConfig = {
+        control: (provided) => ({
+            ...provided,
+            backgroundColor: '#ff8c00', // Установите здесь цвет фона, который вам нужен
+        }),
+    };
 
 
     const formats = [];
@@ -50,7 +45,7 @@ const SearchForm = () => {
         </label>
         <label>
             Format
-            <Select className='bg-orange-500' options={options} styles={styles}/>
+            <Select styles={customStyles} options={options} />
         </label>
     </form>
 }
