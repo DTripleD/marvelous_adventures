@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const HeroInfo = () => {
   return (
-    <div className="w-[538px]">
+    <div className="w-[538px] my-auto">
       <div className="flex flex-col gap-4 mb-8">
         <h2 className="text-white text-opacity-70 text-[18px] leading-[29px] uppercase">
           Web-based platform

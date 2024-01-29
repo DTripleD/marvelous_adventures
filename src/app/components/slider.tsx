@@ -41,7 +41,7 @@ const characters = [
 
 const Slider = () => {
   return (
-    <>
+    <div className="absolute right-[-32px]">
       <Swiper
         pagination={{
           clickable: true,
@@ -73,7 +73,7 @@ const Slider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };
 

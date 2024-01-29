@@ -11,28 +11,21 @@ import { Navigation } from "swiper/modules";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-var md5 = require("md5");
+import { getComics } from "@/lib/api";
+import Container from "./container";
 
 const LastComics = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const ts = Math.floor(new Date().getTime() / 1000); // текущий временной штамп в секундах
-    const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY as string; // ваш приватный ключ
-    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string; // ваш публичный ключ
-
-    const hash = md5(ts + privateKey + publicKey);
-    fetch(
-      `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`
-    )
-      .then((res) => res.json())
+    getComics()
       .then((data) => setData(data.data.results))
       .catch((error) => console.log(error));
   }, []);
 
   return (
-    <section>
-      <div className="px-8">
+    <Container>
+      <div>
         <h2 className="text-neutral-50 uppercase font-medium text-[44px] leading-[44px]">
           Last Comics
         </h2>
@@ -64,7 +57,7 @@ const LastComics = () => {
           </ul>
         </Swiper>
       </div>
-    </section>
+    </Container>
   );
 };
 
