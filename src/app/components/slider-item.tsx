@@ -14,16 +14,12 @@ interface SlideItemProps {
 
 const SliderItem = ({ hero }: SlideItemProps) => {
   return (
-    <div
-      className="flex gap-8 pl-0 h-full"
-      onClick={() => console.log(hero.color)}
-    >
+    <div className="flex gap-8 pl-0 h-full">
       <div
         style={{
           backgroundImage: `url(/images/${hero.imageName}.png)`,
-          backgroundColor: hero.color,
         }}
-        className={`bg-center bg-no-repeat object-cover w-[352px] h-[540px] relative rounded-[4px] self-end mb-10`}
+        className={`${hero.color} bg-center bg-no-repeat object-cover w-[352px] h-[540px] relative rounded-[4px] self-end mb-10`}
       ></div>
       <div className="relative z-10 mt-0 flex gap-8 flex-col">
         <div className="bg-neutral-900 w-[352px] h-[540px] relative rounded-[4px]">
@@ -49,8 +45,8 @@ const SliderItem = ({ hero }: SlideItemProps) => {
           </p>
         </div>
         <div
-          style={{ filter: "blur(47px)", backgroundColor: hero.color }}
-          className="absolute z-[-1] right-0 rounded-[200000px] w-[332px] h-[300px] bottom-16"
+          style={{ filter: "blur(47px)" }}
+          className={`${hero.color} absolute z-[-1] right-0 rounded-[200000px] w-[332px] h-[300px] bottom-16`}
         />
       </div>
     </div>
