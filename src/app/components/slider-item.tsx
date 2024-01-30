@@ -15,7 +15,7 @@ interface SlideItemProps {
 const SliderItem = ({ hero }: SlideItemProps) => {
   return (
     <div
-      className="flex flex-row items-end gap-8 pl-0"
+      className="flex gap-8 pl-0 h-full"
       onClick={() => console.log(hero.color)}
     >
       <div
@@ -23,9 +23,9 @@ const SliderItem = ({ hero }: SlideItemProps) => {
           backgroundImage: `url(/images/${hero.imageName}.png)`,
           backgroundColor: hero.color,
         }}
-        className={`bg-center bg-no-repeat object-cover w-[352px] h-[540px] relative rounded-[4px]`}
+        className={`bg-center bg-no-repeat object-cover w-[352px] h-[540px] relative rounded-[4px] self-end mb-10`}
       ></div>
-      <div className="relative z-10 self-end mt-0 pb-10 flex gap-8 flex-col">
+      <div className="relative z-10 mt-0 flex gap-8 flex-col">
         <div className="bg-neutral-900 w-[352px] h-[540px] relative rounded-[4px]">
           <div
             className={clsx(

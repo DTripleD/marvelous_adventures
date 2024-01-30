@@ -41,7 +41,7 @@ const characters = [
 
 const Slider = () => {
   return (
-    <div className="absolute right-[-32px]">
+    <div className="absolute right-[-32px] h-full">
       <Swiper
         pagination={{
           clickable: true,
@@ -65,7 +65,7 @@ const Slider = () => {
           },
         }}
         modules={[EffectCreative, Pagination, Autoplay]}
-        className="mySwiper"
+        className="mySwiper h-full"
       >
         {characters.map((hero) => (
           <SwiperSlide key={hero.name}>

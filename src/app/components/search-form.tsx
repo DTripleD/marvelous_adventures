@@ -1,15 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import React, { useId, useState } from "react";
-import Select, { StylesConfig } from "react-select";
+import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import moment from "moment";
 import { ChevronDown } from "lucide-react";
 import { formatOptions, orderByOptions } from "@/lib/options";
+import CustomSelect from "./custom-select";
 
 const SearchForm = () => {
   const [dateIsOpen, setDateIsOpen] = useState(false);
+
+  const [orderBy, setOrderBy] = useState("");
+  const [format, setFormat] = useState("");
 
   //   const dateNow = moment().format("DD/MM/YYYY");
 
@@ -18,30 +21,6 @@ const SearchForm = () => {
   const handleDaySelect = (day: any) => {
     console.log(day);
     setSelectedDate(day);
-  };
-
-  const customStyles: StylesConfig = {
-    control: (provided) => ({
-      ...provided,
-      backgroundColor: "#171717",
-      borderRadius: "100px",
-      border: "2px solid #34387F",
-      padding: "16px 24px",
-      "&:hover": {
-        borderColor: "inherit",
-      },
-    }),
-    indicatorSeparator: () => ({ display: "none" }),
-    menu: (provided) => ({
-      ...provided,
-      borderRadius: "16px",
-      backgroundColor: "#171717",
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      backgroundColor: "inherit",
-      color: state.isFocused ? "#FAFAFA" : "#FAFAFA4D",
-    }),
   };
 
   return (
@@ -63,22 +42,18 @@ const SearchForm = () => {
           />
         </div>
       </label>
-      <label className="text-neutral-50 flex flex-col">
-        Format
-        <Select
-          instanceId={useId()}
-          styles={customStyles}
-          options={formatOptions}
-        />
-      </label>
-      <label className="text-neutral-50 flex flex-col">
-        Order by
-        <Select
-          instanceId={useId()}
-          styles={customStyles}
-          options={orderByOptions}
-        />
-      </label>
+      <CustomSelect
+        label={"Format"}
+        options={formatOptions}
+        setSelected={setFormat}
+        selected={format}
+      />
+      <CustomSelect
+        label={"Order by"}
+        options={orderByOptions}
+        setSelected={setOrderBy}
+        selected={orderBy}
+      />
       <div className="text-neutral-50 flex flex-col relative">
         Start Year
         <button

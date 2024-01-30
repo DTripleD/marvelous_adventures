@@ -40,7 +40,7 @@ const Header = () => {
     <header
       ref={headerRef}
       className={clsx(
-        "fixed z-50 transition-all duration-300 w-full",
+        // "fixed z-50 transition-all duration-300 w-full",
         scrolled ? "bg-[#0C0B0B]/100" : "bg-[#0C0B0B]/0"
       )}
     >
