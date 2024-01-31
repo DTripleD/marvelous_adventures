@@ -14,7 +14,7 @@ interface ComicsItemProps {
 const ComicsItem = ({ hero }: ComicsItemProps) => {
   return (
     <li className="flex flex-col w-25-percent-minus-12px">
-      <div className="mas max-w-[332px] h-[445px] rounded-lg overflow-hidden">
+      <div className="max-w-[332px] h-[445px] rounded-lg overflow-hidden">
         <Image
           className="block w-full h-full"
           src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}

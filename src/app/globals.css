@@ -44,34 +44,44 @@ img {
   height: 100%;
 }
 
-div.swiper-button-prev,
-div.swiper-button-next {
-  color: #fafafa;
-  width: 44px;
-  height: 44px;
-  padding: 16px 13px;
-  background-color: #34387f;
-  border-radius: 100%;
-  /* bottom: 0; */
-  top: 90%;
-}
-
-div.swiper-button-prev {
-  left: 45%;
-}
-
-div.swiper-button-next {
-  right: 45%;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: red; /* измените цвет кнопок */
-  background-color: transparent; /* измените цвет фона кнопок */
-}
-
 .swiper.mySwiper {
   margin: 0;
 }
 
-/* .swiper-slide{padding: 0;} */
+.carousel .swiper-slide {
+  padding: 0;
+}
+
+.swiper-nav-btns button {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  background-color: #34387f;
+  color: #fafafa;
+
+  transition: all 0.5s;
+  border: 1px solid #34387f;
+}
+
+.swiper-nav-btns button:active {
+  opacity: 20%;
+}
+
+.swiper-nav-btns button:disabled {
+  background-color: transparent;
+  border: 1px solid #fafafa4d;
+}
+
+.swiper-wrapper {
+  margin-bottom: 32px;
+}
+
+section {
+  margin-bottom: 64px;
+}
+
+section:nth-last-child(1) {
+  margin-bottom: 128px;
+}
