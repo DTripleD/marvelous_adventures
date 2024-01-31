@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        "25-percent-minus-16px": "calc(25% - 16px)",
+        "25-percent-minus-12px": "calc(25% - 12px)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
