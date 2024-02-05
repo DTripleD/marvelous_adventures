@@ -13,3 +13,9 @@ export const orderByOptions = [
   { value: "Title", label: "Title" },
   { value: "On Sale Date", label: "On Sale Date" },
 ];
+
+export let yearsOptions: { value: string; label: string }[] = [];
+
+for (let i = 2025; i >= 1900; i--) {
+  yearsOptions.push({ value: `${i}`, label: `${i}` });
+}

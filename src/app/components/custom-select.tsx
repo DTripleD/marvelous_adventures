@@ -9,12 +9,10 @@ import { DayPicker } from "react-day-picker";
 
 interface CustomSelectProps {
   label: string;
-  options?: { value: string; label: string }[];
+  options: { value: string; label: string }[];
   setSelected: (str: string) => void;
   selected: any;
   width: string;
-  type?: string;
-  handleDaySelect?: any;
 }
 
 const CustomSelect = ({
@@ -23,8 +21,6 @@ const CustomSelect = ({
   setSelected,
   selected,
   width,
-  type,
-  handleDaySelect,
 }: CustomSelectProps) => {
   const [shown, setShown] = useState(false);
 
@@ -48,7 +44,7 @@ const CustomSelect = ({
   }, [selectRef]);
 
   return (
-    <div ref={selectRef} className="select-none">
+    <div ref={selectRef} className="select-none relative">
       <div className={`${width} flex flex-col gap-2`}>
         <p className="text-neutral-50/30 font-normal text-sm leading-[18px]">
           {label}
@@ -61,9 +57,7 @@ const CustomSelect = ({
           onClick={() => setShown(!shown)}
         >
           <p className="font-normal text-base leading-[18px] truncate">
-            {(type === "date"
-              ? moment(selected).format("DD/MM/YYYY")
-              : selected) || "Select"}
+            {selected || "Select"}
           </p>
           <ChevronDown
             className={clsx(
@@ -73,30 +67,22 @@ const CustomSelect = ({
           />
         </div>
       </div>
-      {shown &&
-        (type === "date" ? (
-          <DayPicker
-            className="bg-neutral-900 text-neutral-50 absolute py-4 px-6 rounded-2xl"
-            mode="single"
-            selected={selected}
-            onSelect={handleDaySelect}
-          />
-        ) : (
-          <ul className="bg-neutral-900 py-4 px-6 absolute rounded-2xl flex flex-col gap-2">
-            {options?.map((option) => (
-              <li
-                key={option.value}
-                className="font-normal text-base leading-[18px] text-neutral-50/30 cursor-pointer hover:text-neutral-50"
-                onClick={() => {
-                  setSelected(option.value);
-                  setShown(false);
-                }}
-              >
-                {option.value}
-              </li>
-            ))}
-          </ul>
-        ))}
+      {shown && (
+        <ul className="bg-neutral-900 py-4 px-6 absolute rounded-2xl flex flex-col gap-2 w-full">
+          {options?.map((option) => (
+            <li
+              key={option.value}
+              className="font-normal text-base leading-[18px] text-neutral-50/30 cursor-pointer hover:text-neutral-50"
+              onClick={() => {
+                setSelected(option.value);
+                setShown(false);
+              }}
+            >
+              {option.value}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
