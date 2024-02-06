@@ -44,7 +44,7 @@ const Header = () => {
         scrolled ? "bg-[#0C0B0B]/100" : "bg-[#0C0B0B]/0"
       )}
     >
-      <div className="flex justify-between py-6 px-8 w-[1440px] mx-auto">
+      <div className="flex justify-between p-5 md:py-6 md:px-8 w-[375px] md:w-[768px] 2xl:w-[1440px] mx-auto">
         <Logo />
         <div className="revative">
           <label className="py-3 px-6 border border-zinc-500 border-opacity-30 rounded-full flex items-center gap-2 w-[130px] focus-within:border-opacity-100 transition">

@@ -46,6 +46,11 @@ img {
 
 .swiper.mySwiper {
   margin: 0;
+  overflow: visible;
+}
+
+div.swiper-slide.swiper-slide-visible {
+  overflow: visible;
 }
 
 .carousel .swiper-slide {
