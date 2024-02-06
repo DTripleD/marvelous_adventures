@@ -68,7 +68,13 @@ const CustomSelect = ({
         </div>
       </div>
       {shown && (
-        <ul className="bg-neutral-900 py-4 px-6 absolute rounded-2xl flex flex-col gap-2 w-full">
+        <ul
+          className={`bg-neutral-900 py-4 px-6 absolute rounded-2xl flex flex-col gap-2 w-full ${
+            options && options.length > 0 && options.length * 18 > 260
+              ? "max-h-[260px] overflow-y-scroll"
+              : ""
+          }`}
+        >
           {options?.map((option) => (
             <li
               key={option.value}
@@ -78,7 +84,7 @@ const CustomSelect = ({
                 setShown(false);
               }}
             >
-              {option.value}
+              {option.label}
             </li>
           ))}
         </ul>

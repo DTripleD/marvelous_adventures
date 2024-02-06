@@ -12,13 +12,22 @@ export const searchByTitleStartsWith = (input: string) => {
   ).then((res) => res.json());
 };
 
-export const getComics = () => {
+export const getComics = (
+  startWith?: string | null,
+  format?: string | null,
+  orderBy?: string | null,
+  selectedDate?: string | null
+) => {
   const ts = Math.floor(new Date().getTime() / 1000);
   const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY as string;
   const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string;
 
   const hash = md5(ts + privateKey + publicKey);
   return fetch(
-    `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+    `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}&${
+      format ? `format=${format}` : ""
+    }&${startWith ? `titleStartsWith=${startWith}` : ""}&${
+      selectedDate ? `startYear=${selectedDate}` : ""
+    }&${orderBy ? `orderBy=${orderBy}` : ""}`
   ).then((res) => res.json());
 };

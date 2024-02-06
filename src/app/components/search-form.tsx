@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { formatOptions, orderByOptions, yearsOptions } from "@/lib/options";
 import CustomSelect from "./custom-select";
@@ -17,57 +17,35 @@ const SearchForm = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams]
-  );
-
-  const params = new URLSearchParams(searchParams.toString());
-
-  console.log(params.get("orderBy"));
-
   useEffect(() => {
-    if (format !== "") {
-      router.push(pathname + "?" + createQueryString("format", format), {
-        scroll: false,
-      });
-    }
+    const params = new URLSearchParams(searchParams.toString());
 
-    if (orderBy !== "") {
-      router.push(pathname + "?" + createQueryString("orderBy", orderBy), {
-        scroll: false,
-      });
-    }
+    const queryParams = [
+      { key: "format", value: format },
+      { key: "orderBy", value: orderBy },
+      { key: "startWith", value: startWith },
+      { key: "selectedDate", value: selectedDate },
+    ];
 
-    if (startWith !== "") {
-      router.push(pathname + "?" + createQueryString("startWith", startWith), {
-        scroll: false,
-      });
-    }
+    queryParams
+      .filter(({ value }) => value !== "")
+      .forEach(({ key, value }) => params.set(key, value));
 
-    if (selectedDate) {
-      router.push(
-        pathname +
-          "?" +
-          createQueryString("selectedDate", JSON.stringify(selectedDate)),
-        {
-          scroll: false,
-        }
-      );
-    }
+    queryParams
+      .filter(({ value }) => value === "")
+      .forEach(({ key }) => params.delete(key));
+
+    router.push(`${pathname}?${params.toString()}`, {
+      scroll: false,
+    });
   }, [
-    createQueryString,
     format,
     orderBy,
+    startWith,
+    selectedDate,
     pathname,
     router,
-    selectedDate,
-    startWith,
+    searchParams,
   ]);
 
   return (
