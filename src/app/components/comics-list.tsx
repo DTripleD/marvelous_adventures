@@ -25,7 +25,7 @@ const ComicsList = () => {
 
   return (
     <Container>
-      <ul className="flex flex-wrap text-neutral-50 gap-x-4 gap-y-16">
+      <ul className="flex flex-wrap text-neutral-50 gap-10 md:gap-8 lg:gap-x-4 lg:gap-y-16">
         {data.map((hero: any) => (
           <ComicsItem hero={hero} key={hero.id} />
         ))}

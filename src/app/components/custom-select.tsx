@@ -4,9 +4,6 @@ import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import moment from "moment";
-import { DayPicker } from "react-day-picker";
-
 interface CustomSelectProps {
   label: string;
   options: { value: string; label: string }[];

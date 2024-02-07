@@ -2,11 +2,9 @@
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import required modules
 import { Navigation } from "swiper/modules";
 
 import Image from "next/image";
@@ -28,8 +26,6 @@ const LastComics = () => {
   const handleSlideChange = (swiper: any) => {
     setCurrentIndex(swiper.activeIndex);
   };
-
-  console.log(data.length);
 
   return (
     <Container>

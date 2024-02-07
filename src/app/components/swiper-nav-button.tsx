@@ -15,8 +15,6 @@ export const SwiperNavButtons = ({
 }: SwiperNavButtonsProps) => {
   const swiper = useSwiper();
 
-  console.log(disabledPrev);
-
   return (
     <div className="swiper-nav-btns flex gap-4 justify-center">
       <button
