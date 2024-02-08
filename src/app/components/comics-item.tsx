@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useCardModal } from "../hooks/use-card-modal";
 
 interface ComicsItemProps {
   hero: {
@@ -12,8 +13,16 @@ interface ComicsItemProps {
 }
 
 const ComicsItem = ({ hero }: ComicsItemProps) => {
+  const onOpen = useCardModal((state) => state.onOpen);
+  const id = useCardModal((state) => state.id);
+
+  console.log(id);
+
   return (
-    <li className="flex flex-col w-full md:w-50-percent-minus-16px lg:w-25-percent-minus-12px">
+    <li
+      className="flex flex-col w-full md:w-50-percent-minus-16px lg:w-25-percent-minus-12px"
+      onClick={() => onOpen(hero.title)}
+    >
       <div className="w-full h-[445px] rounded-lg overflow-hidden">
         <Image
           className="block w-full h-full"
