@@ -42,8 +42,8 @@ const CustomSelect = ({
 
   return (
     <div ref={selectRef} className="select-none relative">
-      <div className={`${width} flex flex-col gap-2`}>
-        <p className="text-neutral-50/30 font-normal text-sm leading-[18px]">
+      <div className={`${width} flex flex-col gap-1 md:gap-2 `}>
+        <p className="text-neutral-50/30 font-normal text-xs leading-[14px] md:text-sm md:leading-[18px]">
           {label}
         </p>
         <div
@@ -53,7 +53,7 @@ const CustomSelect = ({
           )}
           onClick={() => setShown(!shown)}
         >
-          <p className="font-normal text-base leading-[18px] truncate">
+          <p className="font-normal text-sm md:text-base leading-[18px] md:leading-[18px] truncate">
             {selected || "Select"}
           </p>
           <ChevronDown
@@ -66,7 +66,7 @@ const CustomSelect = ({
       </div>
       {shown && (
         <ul
-          className={`bg-neutral-900 py-4 px-6 absolute rounded-2xl flex flex-col gap-2 w-full ${
+          className={`bg-neutral-900 py-[14px] md:py-4 px-6 absolute z-10 rounded-2xl flex flex-col gap-2 w-full ${
             options && options.length > 0 && options.length * 18 > 260
               ? "max-h-[260px] overflow-y-scroll"
               : ""
@@ -75,7 +75,7 @@ const CustomSelect = ({
           {options?.map((option) => (
             <li
               key={option.value}
-              className="font-normal text-base leading-[18px] text-neutral-50/30 cursor-pointer hover:text-neutral-50"
+              className="font-normal text-xs leading-[14px] md:text-sm md:leading-[18px] lg:text-base lg:leading-[18px] text-neutral-50/30 cursor-pointer hover:text-neutral-50"
               onClick={() => {
                 setSelected(option.value);
                 setShown(false);
