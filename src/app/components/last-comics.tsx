@@ -17,15 +17,19 @@ const LastComics = () => {
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [isStartBtnActive, setStartBtnActive] = useState(true);
+  const [isEndBtnActive, setIsEndBtnActive] = useState(false);
+
   useEffect(() => {
     getComics()
       .then((data) => setData(data.data.results))
       .catch((error) => console.log(error));
   }, []);
 
-  const handleSlideChange = (swiper: any) => {
-    setCurrentIndex(swiper.activeIndex);
-  };
+  function isButtonActive(e: any) {
+    e.isBeginning ? setStartBtnActive(true) : setStartBtnActive(false);
+    e.isEnd ? setIsEndBtnActive(true) : setIsEndBtnActive(false);
+  }
 
   return (
     <Container>
@@ -36,24 +40,14 @@ const LastComics = () => {
         <Swiper
           // navigation={true}
           modules={[Navigation]}
-          className="carousel"
-          // slidesPerView={3}
+          className="carousel custom-swiper-slide "
+          slidesPerView={"auto"}
           spaceBetween={16}
-          onSlideChange={handleSlideChange}
-          breakpoints={{
-            // when window width is <= 767px (mobile)
-            375: {
-              slidesPerView: 1,
-            },
-            // when window width is > 767px (desktop)
-            1440: {
-              slidesPerView: 3,
-            },
-          }}
+          onSlideChange={isButtonActive}
         >
           <ul>
             {data.map((comics: any) => (
-              <SwiperSlide key={comics.id}>
+              <SwiperSlide key={comics.id} className="custom-swiper-slide">
                 <li className="flex flex-col w-[323px] md:w-[448px]">
                   <div className="max-w-[323px] h-[374px] md:max-w-[448px] md:h-[519px] rounded-lg overflow-hidden">
                     <Image
@@ -77,8 +71,8 @@ const LastComics = () => {
             ))}
           </ul>
           <SwiperNavButtons
-            disabledPrev={currentIndex === 0}
-            disabledNext={currentIndex === data.length - 3}
+            disabledPrev={isStartBtnActive}
+            disabledNext={isEndBtnActive}
           />
         </Swiper>
       </div>
