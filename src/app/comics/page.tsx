@@ -1,5 +1,6 @@
 import ComicsList from "../components/comics-list";
 import HeroComics from "../components/hero-comics";
+import Modal from "../components/modal";
 import SearchForm from "../components/search-form";
 
 const ComicsPage = () => {
@@ -8,6 +9,7 @@ const ComicsPage = () => {
       <HeroComics />
       <SearchForm />
       <ComicsList />
+      <Modal />
     </div>
   );
 };
