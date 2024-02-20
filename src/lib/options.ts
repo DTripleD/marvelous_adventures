@@ -12,7 +12,7 @@ export const formatOptions = [
 
 export const orderByOptions = [
   { value: "", label: "Any" },
-  { value: "Title", label: "Title" },
+  { value: "title", label: "Title" },
   { value: "On Sale Date", label: "On Sale Date" },
 ];
 

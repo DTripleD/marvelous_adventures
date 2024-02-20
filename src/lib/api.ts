@@ -13,6 +13,8 @@ export const searchByTitleStartsWith = (input: string) => {
 };
 
 export const getComics = (
+  itemOffset: number,
+  perPage: number,
   startWith?: string | null,
   format?: string | null,
   orderBy?: string | null,
@@ -24,7 +26,7 @@ export const getComics = (
 
   const hash = md5(ts + privateKey + publicKey);
   return fetch(
-    `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}&${
+    `http://gateway.marvel.com/v1/public/comics?limit=${perPage}&offset=${itemOffset}&ts=${ts}&apikey=${publicKey}&hash=${hash}&${
       format ? `format=${format}` : ""
     }&${startWith ? `titleStartsWith=${startWith}` : ""}&${
       selectedDate ? `startYear=${selectedDate}` : ""
