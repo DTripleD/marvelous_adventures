@@ -13,8 +13,8 @@ export const searchByTitleStartsWith = (input: string) => {
 };
 
 export const getComics = (
-  itemOffset: number,
-  perPage: number,
+  itemOffset?: number,
+  perPage?: number,
   startWith?: string | null,
   format?: string | null,
   orderBy?: string | null,
