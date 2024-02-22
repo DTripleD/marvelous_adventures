@@ -26,7 +26,11 @@ export const getComics = (
 
   const hash = md5(ts + privateKey + publicKey);
   return fetch(
-    `http://gateway.marvel.com/v1/public/comics?limit=${perPage}&offset=${itemOffset}&ts=${ts}&apikey=${publicKey}&hash=${hash}&${
+    `http://gateway.marvel.com/v1/public/comics?${
+      perPage ? `limit=${perPage}` : ""
+    }&${
+      itemOffset ? `offset=${itemOffset}` : ""
+    }&ts=${ts}&apikey=${publicKey}&hash=${hash}&${
       format ? `format=${format}` : ""
     }&${startWith ? `titleStartsWith=${startWith}` : ""}&${
       selectedDate ? `startYear=${selectedDate}` : ""
