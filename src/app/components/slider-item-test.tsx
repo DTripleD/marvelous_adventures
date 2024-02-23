@@ -14,9 +14,15 @@ const SliderItemTest = ({
     <div
       className={clsx(
         "flex gap-8 relative transition-all duration-1000 h-full",
-        onScreen === "panter" ? "translate-y-[%]" : "",
-        onScreen === "spider" ? "translate-y-[-100%]" : "",
-        onScreen === "hulk" ? "translate-y-[-200%]" : ""
+        onScreen === "panter"
+          ? "translate-x-[0%] translate-y-[0%] lg:translate-y-[0%] lg:translate-x-[0%]"
+          : "",
+        onScreen === "spider"
+          ? "translate-x-[-100%] translate-y-[0%] lg:translate-y-[-100%] lg:translate-x-[0%]"
+          : "",
+        onScreen === "hulk"
+          ? "translate-x-[-200%] translate-y-[0%] lg:translate-y-[-200%] lg:translate-x-[0%]"
+          : ""
       )}
     >
       <Image

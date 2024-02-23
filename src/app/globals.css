@@ -87,10 +87,6 @@ section {
   margin-bottom: 64px;
 }
 
-section:nth-last-child(1) {
-  margin-bottom: 128px;
-}
-
 .custom-swiper-slide.custom-swiper-slide {
   width: auto;
   max-width: none;

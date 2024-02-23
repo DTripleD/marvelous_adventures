@@ -29,28 +29,28 @@ const SliderTest = ({ onScreen, setOnScreen }: any) => {
   }, [onScreen, setOnScreen]);
 
   return (
-    <div className="h-full lg:mr-[-32px] lg:h-auto pb-10 flex gap-16">
-      <div className="flex flex-col my-auto gap-[14px]">
+    <div className="h-full lg:mr-[-32px] mb-10 flex gap-10 md:gap-8 lg:gap-16 flex-col-reverse lg:flex-row overflow-hidden">
+      <div className="flex lg:flex-col my-auto gap-[14px] justify-center">
         <button
-          className={`w-1 h-[100px] transition-all duration-1000 ${
+          className={`w-[100px] h-1 lg:w-1 lg:h-[100px] transition-all duration-1000 ${
             onScreen === "panter" ? "bg-[#34387F]" : "bg-[#171717CC]"
           }`}
           onClick={() => setOnScreen("panter")}
         ></button>
         <button
-          className={`w-1 h-[100px] transition-all duration-1000 ${
+          className={`w-[100px] h-1 lg:w-1 lg:h-[100px] transition-all duration-1000 ${
             onScreen === "spider" ? "bg-[#600404]" : "bg-[#171717CC]"
           }`}
           onClick={() => setOnScreen("spider")}
         ></button>
         <button
-          className={`w-1 h-[100px] transition-all duration-1000 ${
+          className={`w-[100px] h-1 lg:w-1 lg:h-[100px] transition-all duration-1000 ${
             onScreen === "hulk" ? "bg-[#5B7F3C]" : "bg-[#171717CC]"
           }`}
           onClick={() => setOnScreen("hulk")}
         ></button>
       </div>
-      <div className="max-h-[780px] overflow-y-hidden">
+      <div className="max-h-[780px] flex lg:block w-max">
         {characters.map((character) => (
           <SliderItemTest
             key={character.name}

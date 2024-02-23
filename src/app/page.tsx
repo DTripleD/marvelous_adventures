@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Container>
-        <div className="flex pb-[128px] relative flex-col lg:flex-row lg:justify-between">
+        <div className="flex relative flex-col lg:flex-row lg:justify-between">
           <HeroInfo onScreen={onScreen} />
           {/* <Slider /> */}
           <SliderTest onScreen={onScreen} setOnScreen={setOnScreen} />
